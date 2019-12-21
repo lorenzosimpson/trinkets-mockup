@@ -3,14 +3,7 @@ body {
   transition: 0.3s;
 }
 
-.dark-mode {
-  background: #282828;
-  color: white;
-  transition: 0.3s;
-  .item-description {
-    border-top: 1px solid white;
-  }  
-}
+
 
 .dark-mode a {
   color: white;
@@ -115,4 +108,46 @@ a {
 .item-description, .item-shipping {
   width: 50%;
   border-top: 1px solid black;
+}
+
+.cart-wrapper {
+
+  .cart-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .items-list-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #total {
+    text-align: right;
+    margin-right: 10%;
+  }
+
+  .cart-item-card {
+    min-width: 800px;
+    border-top: 1px solid black;
+    img {
+      height: 150px;
+      margin-top: 30px;
+    }
+  }
+
+}
+.dark-mode {
+  background: #282828;
+  color: white;
+  transition: 0.3s;
+  .item-description {
+    border-top: 1px solid white;
+  }
+  .cart-item-card {
+    border-top: 1px solid white;  
+  }
 }

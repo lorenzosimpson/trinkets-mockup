@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 
 import Description from './Description';
 import Shipping from './Shipping';
+import { ItemContext } from '../contexts/ItemContext';
 
 const Item = props => {
-    const item = props.items.find(
+  const { items } = useContext(ItemContext)
+    const item = items.find(
         i => `${i.id}` === props.match.params.id
       );
 
-      if (!props.items.length || !item) {
+      if (!items.length || !item) {
         return <h2>Loading item...</h2>;
       }
         return (
