@@ -38,14 +38,11 @@ const order = map(filteredCart, cart, getQuantity)
 
 
     return (
+        
         <div className='cart-wrapper'>
             <div className='cart-header'>
                 <h1>Cart</h1>
             </div>
-            <p id='total'>Total: 
-                <div className='cart-total'>${getCartTotal()}</div>
-                <button className='shop-btn'>Checkout</button>
-            </p>
             <div className='items-list-wrapper'>
             {filteredCart.map(item => (
                 <div className='cart-item-card'>
@@ -56,13 +53,19 @@ const order = map(filteredCart, cart, getQuantity)
                     
                     <p>${getQuantity(item, cart) * item.price}</p>
                     </div>
-
-
                 </div>
-            ))
-            }
+            ))}
+             
             </div>  
+            
+            {cart.length ? (
+                <p id='total'>Total: 
+                     <div className='cart-total'>${getCartTotal()}</div>
+                      <button className='shop-btn'>Checkout</button>
+                </p>
+            ) : null}
         </div>
     )
+
 }
 export default Cart;

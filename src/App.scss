@@ -175,7 +175,8 @@ a {
 
   #total {
     font-size: 2rem;
-    margin-top: 0;
+    text-align: center;
+    margin: 0;
   }
 
   .items-list-wrapper {
@@ -185,10 +186,6 @@ a {
     align-items: center;
   }
 
-  #total {
-    text-align: right;
-    margin-right: 10%;
-  }
 
   .cart-item-card {
     min-width: 800px;
