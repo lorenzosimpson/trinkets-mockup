@@ -16,14 +16,15 @@ const Shop = props => {
             items.map(item => (
                 <>
                 <div className='item-card'>
-                    <div  onClick={e => routeToItem(e, item)}>
-                    <img src={item.imageUrl} alt={item.name}></img>
-                    <h1>{item.name}</h1>
+                    <div className='card-inner'>
+                    <img src={item.imageUrl} onClick={e => routeToItem(e, item)} alt={item.name}></img>
+                    <h1 onClick={e => routeToItem(e, item)}>{item.name}</h1>
                     
-                    <p>${item.price}</p>
+                    <p className='price-cart-btn'>${item.price}</p>
+                    <button className='shop-btn-item' onClick={() => addItem(item)}>Add to cart</button> 
                     </div>
 
-                    <button onClick={() => addItem(item)}>add to cart</button>
+                   
 
                 </div>
                

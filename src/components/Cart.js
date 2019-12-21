@@ -17,17 +17,35 @@ const filteredCart = Array.from(new Set(cart.map(i => i.id)))
   return cart.find(i => i.id === id)
 })
 
-const getQuantity = (item, arr) => arr.filter(i => i.id == item.id).length;
+const getQuantity = (item, arr) => arr.filter(i => i.id === item.id).length;
+
+async function map(arr, arr2, cb) {
+    let new_arr = [];
+    for (let i=0; i<arr.length; i++) {
+     new_arr.push({
+         id: arr[i].id, 
+         name: arr[i].name, 
+         price: arr[i].price, 
+         quantity: cb(arr[i], arr2)}
+         )
+    }
+    return new_arr;
+}
+
+const order = map(filteredCart, cart, getQuantity)
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
 
 
     return (
         <div className='cart-wrapper'>
             <div className='cart-header'>
                 <h1>Cart</h1>
-                
             </div>
-            <p id='total'>Total: {getCartTotal()}</p>
-            {/* <button>Checkout</button> */}
+            <p id='total'>Total: 
+                <div className='cart-total'>${getCartTotal()}</div>
+                <button className='shop-btn'>Checkout</button>
+            </p>
             <div className='items-list-wrapper'>
             {filteredCart.map(item => (
                 <div className='cart-item-card'>

@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { Route }from 'react-router-dom';
 import axios from 'axios';
 
+
 import Home from './components/Home';
 import Shop from './components/Shop';
 import Item from './components/Item'
@@ -32,7 +33,7 @@ function App(props) {
   }
 
   useEffect(() => {
-      axios.get('http://localhost:3333/items')
+      axios.get(`http://localhost:3333/items`)
       .then(res => setItems(res.data))
       .catch(err => console.log(err))
   }, [])

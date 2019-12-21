@@ -6,7 +6,7 @@ import Shipping from './Shipping';
 import { ItemContext } from '../contexts/ItemContext';
 
 const Item = props => {
-  const { items } = useContext(ItemContext)
+  const { items, addItem } = useContext(ItemContext)
     const item = items.find(
         i => `${i.id}` === props.match.params.id
       );
@@ -23,6 +23,7 @@ const Item = props => {
                 <div className="item-title-wrapper">
                   <h2>{item.name}</h2>
                   <h4>${item.price}</h4>
+                  <button className='shop-btn-item' onClick={() => addItem(item)}>Add to cart</button>
                 </div>
               </div>
               <nav className="item-sub-nav">

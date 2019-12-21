@@ -20,7 +20,11 @@ const Navbar = props => {
                 <Link to='/shop'>
                     <p>Shop</p>
                 </Link>
-                <p onClick={routeToCart}>{`Cart (${cart.length})`}</p>
+                <div className='cart' onClick={routeToCart}>
+                    <p>Cart</p>
+                    <p id='cart-count'>{cart.length ? cart.length: null}</p>
+                </div>
+                
                 {/* <p>{`Cart total ${getCartTotal()}`}</p> */}
                 <div className='dark-toggle' onClick={() => setDarkMode(!darkMode)}>{darkMode ? '🌞' : '🌙'}</div>
             </div>
